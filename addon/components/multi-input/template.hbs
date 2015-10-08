@@ -1,0 +1,20 @@
+{{#each collection as |item|}}
+  <div>
+    {{#if readOnly}}
+      {{value.value}}
+    {{else}}
+      {{input
+        value=item.value
+        focus-out='onFocusOut'
+        type=inputType
+        placeholder=placeholder
+        class=inputClass
+      }}
+      <button {{action 'remove' item}}>{{removeBtnText}}</button>
+    {{/if}}
+  </div>
+{{/each}}
+
+<div>
+  <button {{action 'addNew'}}>{{addBtnText}}</button>
+</div>
